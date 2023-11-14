@@ -79,25 +79,31 @@ yargs.command({
     },
 });
 
+// Menampilkan semua data kontak (nama dan nomor telepon) yang sudah diinputkan melalui yargs
 yargs.command({
+    // Deklarasi command list untuk menampilkan nama dan nomor telepon
     command: "list",
     describe: "Menampilkan nama dan nomor telepon",
     handler() {
+        // Membaca data yang sudah ada
         const existingData = readFile();
         console.log('List Data Kontak: ');
+        // Menggunakan metode forEach untuk iterasi melalui setiap elemen dalam array existingData
         existingData.forEach((kontak, index) => {
             console.log(`${index + 1}. Nama : ${kontak.nama}, No Telepon : ${kontak.telepon}`);
         });
     },
 });
 
+// Menampilkan data berdasarkan nama yang diinputkan melalui yargs
 yargs.command({
+    // Deklarasi command detail untuk menampilkan data berdasarkan nama
     command: "detail",
     describe: "Menampilkan data berdasarkan nama yang diinputkan",
     builder: {
         nama: {
             describe: 'Nama',
-            demandOption: true, // Required atau wajib diisi
+            demandOption: true,
             type: 'string'
         }
     },
@@ -106,8 +112,11 @@ yargs.command({
         // console.log(argv);
         // console.log(123);
         // console.log(existingData);
+
+        // Mencari data kontak berdasarkan nama
         const kontak = existingData.find((c) => c.nama.toLowerCase() === argv.nama.toLowerCase());
 
+        // Kondisi yang akan menampilkan data kontak apabila nama yang diinputkan ditemukan
         if (kontak) {
             console.log(`Nama       : ${kontak.nama}`);
             console.log(`No Telepon : ${kontak.telepon}`);

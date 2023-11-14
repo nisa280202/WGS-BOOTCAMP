@@ -1,1 +1,22 @@
-[{"Nama":"Nisa","NoTelp":"089662451890","Email":"nisa@gmail.com"},{"nama":"NIsa","telepon":"0896625371389","email":"nisa@gmail.com"},{"nama":"Cacang","telepon":"087878787878","email":"cacang@gmail.com"},{"nama":"Nisa","telepon":"082122222211","email":"alivia@gmail.com"},{"nama":"Michelle","telepon":"081236541891","email":"michelle2@gmail.com"}]
+[
+    {
+        "nama": "NIsa",
+        "telepon": "0896625371389",
+        "email": "nisa@gmail.com"
+    },
+    {
+        "nama": "Cacang",
+        "telepon": "087878787878",
+        "email": "cacang@gmail.com"
+    },
+    {
+        "nama": "Nisa",
+        "telepon": "082122222211",
+        "email": "alivia@gmail.com"
+    },
+    {
+        "nama": "Michelle",
+        "telepon": "081236541891",
+        "email": "michelle2@gmail.com"
+    }
+]
