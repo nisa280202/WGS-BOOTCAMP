@@ -1,0 +1,10 @@
+<!-- Content untuk halaman contact -->
+
+<section>
+    <h2>Contact</h2>
+    <!-- Pengulangan untuk menampilkan data nama dan kontak -->
+    <% data.forEach(cont => { %>
+        <h4><%= cont.name %></h4>
+        <p><%= cont.phone %></p>
+    <% }) %>
+</section>

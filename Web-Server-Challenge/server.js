@@ -18,21 +18,21 @@ http
         const url = req.url;
 
         if (url === '/') {
-            const home = readFile('./home.html')
+            const home = readFile('./views/home.html')
             console.log(url);
             res.writeHead(200, {
                 'Content-Type': 'text/html',
             });
             res.write(home);
         } else if (url === '/about') {
-            const about = readFile('./about.html')
+            const about = readFile('./views/about.html')
             console.log(url);
             res.writeHead(200, {
                 'Content-Type': 'text/html',
             });
             res.write(about);
         } else if (url === '/contact') {
-            const contact = readFile('./contact.html')
+            const contact = readFile('./views/contact.html')
             console.log(url);
             res.writeHead(200, {
                 'Content-Type': 'text/html',

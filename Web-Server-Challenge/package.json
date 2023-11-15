@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "validator": "^13.11.0"
+  },
+  "scripts": {
+    "start": "nodemon app-express.js"
+  },
+  "name": "web-server-challenge",
+  "version": "1.0.0",
+  "main": "app-express.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
