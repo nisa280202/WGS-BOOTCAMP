@@ -1,9 +1,9 @@
 const yargs = require('yargs');
 const fs = require('fs');
+const { updateLocale } = require('yargs');
 
-// Mendeklarasi folder data
+// Mendeklarasi path folder dan file data
 const dirPath = './data';
-// Mendeklarasi file path JSON 
 const dataPath = './data/data-yargs.json';
 
 // Mengecek folder, jika tidak ada akan dibuat
@@ -16,7 +16,7 @@ if (!fs.existsSync(dataPath)) {
     fs.writeFileSync(dataPath, '[]', 'utf-8');
 }
 
-// Membaca file JSON
+// Fungsi untuk membaca file JSON
 const readFile = () => {
     try {
         const dataTemp = fs.readFileSync(dataPath, 'utf-8');
@@ -27,12 +27,12 @@ const readFile = () => {
     }
 }
 
-// Menulis ke dalam file JSON
+// Fungsi untuk menulis ke dalam file JSON
 const writeFile = (data) => {
     fs.writeFileSync(dataPath, JSON.stringify(data));
 }
 
-// Menambahkan data lewat yargs
+// Menambahkan data kontak lewat yargs
 yargs.command({
     // Deklarasi command add untuk menambahkan data
     command: 'add',
@@ -114,7 +114,7 @@ yargs.command({
         // console.log(existingData);
 
         // Mencari data kontak berdasarkan nama
-        const kontak = existingData.find((c) => c.nama.toLowerCase() === argv.nama.toLowerCase());
+        const kontak = existingData.find((k) => k.nama.toLowerCase() === argv.nama.toLowerCase());
 
         // Kondisi yang akan menampilkan data kontak apabila nama yang diinputkan ditemukan
         if (kontak) {
@@ -127,5 +127,92 @@ yargs.command({
         }
     },
 });
+
+// Mengupdate data kontak menggunakan yargs
+yargs.command({
+    // Deklarasi command update untuk mengubah data
+    command: "update",
+    describe: "Mengubah data kontak",
+    builder: {
+        nama: {
+            describe: 'Nama',
+            demandOption: true,
+            type: 'string'
+        },
+        telepon: {
+            describe: 'Telepon Baru',
+            type: 'string'
+        },
+        email: {
+            describe: 'Email Baru',
+            type: 'string'
+        },
+        alamat: {
+            describe: 'Alamat Baru',
+            type: 'string'
+        },
+        namaBaru: {                 // Untuk menampung nama baru yang telah diubah
+            describe: 'Nama Baru',
+            type: "string"
+        }
+    },
+    handler(argv) {
+        const existingData = readFile();
+        // console.log(existingData);
+        // console.log(argv.alamat);
+
+        for(let i = 0; i < existingData.length; i++) {
+            // Kondisi untuk mendapatkan data dengan nama yang diinputkan
+            if(existingData[i]['nama'].toLowerCase() === argv.nama.toLowerCase()) {
+                if(argv.telepon !== undefined) {
+                    existingData[i]['telepon'] = argv.telepon
+                }
+                if(argv.email !== undefined) {
+                    existingData[i]['email'] = argv.email
+                }
+                if(argv.alamat !== undefined) {
+                    existingData[i]['alamat'] = argv.alamat
+                }
+                if(argv.namaBaru !== undefined) {
+                    existingData[i]['nama'] = argv.namaBaru
+                }
+            }
+        }
+
+        // Menulis kembali data yang telah di update
+        writeFile(existingData);
+
+        console.log('Data berhasil diubah!');
+    },
+});
+
+// Menghapus data kontak menggunakan yargs
+yargs.command({
+    // Deklarasi command delete untuk menghapus data kontak
+    command: "delete",
+    describe: "Menghapus data kontak",
+    builder: {
+        nama: {
+            describe: 'Nama',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv) {
+        const existingData = readFile();
+
+        // Menghapus data berdasarkan nama yang diinputkan 
+        for(let i = 0; i < existingData.length; i++) {
+            if(existingData[i]['nama'] === argv.nama) {
+                existingData.splice(i, 1);
+            }
+        }
+
+        // Menulis kembali data setelah penghapusan
+        writeFile(existingData);
+
+        console.log('Data berhasil dihapus!');
+    }
+})
 
 yargs.parse();
