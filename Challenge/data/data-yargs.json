@@ -1,1 +1,37 @@
-[{"nama":"Nisa","telepon":"082122222211","email":"alivia@gmail.com","alamat":"Lampung"},{"nama":"Michelle","telepon":"081236541891","email":"michelle2@gmail.com"},{"nama":"Nisa","telepon":"089662537289","email":"nisa@gmail.com","alamat":"Lampung"},{"nama":"Nisa","telepon":"089662537289","email":"nisa@gmail.com","alamat":"Lampung"},{"nama":"Alivia","telepon":"089662537289","email":"nisa@gmail.com","alamat":"Kabupaten Bandung"},{"nama":"Alivia","telepon":"089662537289","email":"nisa@gmail.com","alamat":"Kabupaten Bandung"}]
+[
+    {
+        "nama": "Nisa",
+        "telepon": "082122222211",
+        "email": "alivia@gmail.com",
+        "alamat": "Lampung"
+    },
+    {
+        "nama": "Michelle",
+        "telepon": "081236541891",
+        "email": "michelle2@gmail.com"
+    },
+    {
+        "nama": "Nisa",
+        "telepon": "089662537289",
+        "email": "nisa@gmail.com",
+        "alamat": "Lampung"
+    },
+    {
+        "nama": "Nisa",
+        "telepon": "089662537289",
+        "email": "nisa@gmail.com",
+        "alamat": "Lampung"
+    },
+    {
+        "nama": "Alivia",
+        "telepon": "089662537289",
+        "email": "nisa@gmail.com",
+        "alamat": "Kabupaten Bandung"
+    },
+    {
+        "nama": "Alivia",
+        "telepon": "089662537289",
+        "email": "nisa@gmail.com",
+        "alamat": "Kabupaten Bandung"
+    }
+]

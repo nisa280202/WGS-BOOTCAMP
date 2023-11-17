@@ -3,11 +3,20 @@ const express = require('express')
 const expressEjsLayouts = require('express-ejs-layouts')
 const app = express() // Membuat instance Express
 const port = 3000 // Menetapkan port aplikasi
+const morgan = require('morgan')
 
 // Konfigurasi untuk menggunakan EJS sebagai view engine
 app.set('view engine', 'ejs')
 app.use(expressEjsLayouts)
 app.set('layout', './layout/layout')
+app.use(express.static('public'))
+
+app.use((req, res, next) => {
+    console.log('Time: ', Date.now());
+    next()
+})
+
+app.use(morgan('dev'))
 
 // Mengatur route untuk halaman utama (home)
 app.get('/', (req, res) => {
