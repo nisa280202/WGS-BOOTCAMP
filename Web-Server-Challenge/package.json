@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
     "validator": "^13.11.0"
   },
   "scripts": {
@@ -11,7 +14,6 @@
   "name": "web-server-challenge",
   "version": "1.0.0",
   "main": "app-express.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
