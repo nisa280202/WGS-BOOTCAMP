@@ -1,0 +1,29 @@
+<section>
+    <h2 style="text-align: center;">Data Contact</h2>
+    <a href="/add-contact" class="add-contact-button"><b>Add Contact</b></a>
+    <table class="contact-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let index = 0 %>
+            <% data.forEach((contact, index) => { %>
+                <tr>
+                    <td><%= index+1 %></td>
+                    <td><%= contact.name %></td>
+                    <td><%= contact.phone %></td>
+                    <td class="action-buttons">
+                        <a href="/detail-contact/<%= contact.id %>" class="action-button detail-button">Detail</a>
+                        <a href="/update-contact/<%= contact.id %>" class="action-button update-button">Update</a>
+                        <a href="/delete-contact/<%= contact.id %>" class="action-button delete-button">Delete</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>

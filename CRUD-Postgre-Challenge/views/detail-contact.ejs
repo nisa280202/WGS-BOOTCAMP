@@ -1,0 +1,26 @@
+<section>
+    <div class="contact-card">
+        <div class="contact-header">
+            <h2>Contact Details</h2>
+        </div>
+
+        <div class="contact-details">
+            <div class="detail-label">Name:</div>
+            <div class="detail-value"><%= contact.name %></div>
+
+            <div class="detail-label">Phone:</div>
+            <div class="detail-value"><%= contact.phone %></div>
+
+            <div class="detail-label">Email:</div>
+            <div class="detail-value"><%= contact.email %></div>
+
+            <div class="detail-label">Address:</div>
+            <div class="detail-value"><%= contact.address %></div>
+
+            <button type="submit" class="submit-button">
+                <a href="/delete-contact/<%= contact.id %>">Delete</a>
+            </button>
+            <a href="/contact" class="go-back">Go Back</a>
+        </div>
+    </div>
+</section>

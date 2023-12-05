@@ -1,0 +1,41 @@
+<section>
+    <div class="add-contact-form">
+        <div class="form-header">
+            <h2>Add New Contact</h2>
+        </div>
+        <div class="form-container">
+            <form action="/add-contact" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required value="<%= contact ? contact.name : '' %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="phone" id="phone" name="phone" required value="<%= contact ? contact.phone : '' %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required value="<%= contact ? contact.email : '' %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="address" id="address" name="address" required value="<%= contact ? contact.address : '' %>">
+                </div>
+
+                <% if (typeof errors != 'undefined') { %>
+                    <% errors.forEach(error => { %>
+                        <div class="alert alert-danger" role="alert">
+                            <p><%= error.msg %></p>
+                        </div>
+                    <% }) %>
+                <% } %>
+
+                <button type="submit" class="submit-button">Add Contact</button>
+                <a href="/contact" class="go-back">Go Back</a>
+            </form>
+        </div>
+    </div>
+</section>
